@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get a Quote - EcoRecycle</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <nav style="display: flex; justify-content: space-between; align-items: center; padding: 20px 0;">
+                <div class="logo" style="font-size: 1.5rem; font-weight: bold; color: var(--primary-color);"><a
+                        href="index.html">EcoRecycle</a></div>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container" style="padding: 50px 20px;">
+        <h1 style="text-align: center; margin-bottom: 40px;">Get an Instant Quote</h1>
+
+        <div id="wizard-container"
+            style="max-width: 600px; margin: 0 auto; background: white; padding: 30px; border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+            <!-- Step 1: Device Type -->
+            <div id="step-1" class="wizard-step">
+                <h2 style="margin-bottom: 20px;">Select Device Type</h2>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                    <button class="btn btn-secondary device-type-btn" data-type="smartphone"
+                        style="padding: 20px;">Smartphone</button>
+                    <button class="btn btn-secondary device-type-btn" data-type="laptop"
+                        style="padding: 20px;">Laptop</button>
+                    <button class="btn btn-secondary device-type-btn" data-type="tablet"
+                        style="padding: 20px;">Tablet</button>
+                    <button class="btn btn-secondary device-type-btn" data-type="smartwatch"
+                        style="padding: 20px;">Smartwatch</button>
+                </div>
+            </div>
+
+            <!-- Step 2: Model -->
+            <div id="step-2" class="wizard-step" style="display: none;">
+                <h2 style="margin-bottom: 20px;">Select Model</h2>
+                <select id="model-select"
+                    style="width: 100%; padding: 10px; margin-bottom: 20px; border-radius: 5px; border: 1px solid #ccc;">
+                    <option value="">Select a model...</option>
+                    <!-- Options populated by JS -->
+                </select>
+                <div style="display: flex; justify-content: space-between;">
+                    <button class="btn btn-secondary back-btn" data-target="step-1">Back</button>
+                    <button class="btn btn-primary next-btn" data-target="step-3" disabled
+                        id="step-2-next">Next</button>
+                </div>
+            </div>
+
+            <!-- Step 3: Condition -->
+            <div id="step-3" class="wizard-step" style="display: none;">
+                <h2 style="margin-bottom: 20px;">Device Condition</h2>
+                <div style="display: flex; flex-direction: column; gap: 10px; margin-bottom: 20px;">
+                    <label style="padding: 15px; border: 1px solid #ccc; border-radius: 5px; cursor: pointer;">
+                        <input type="radio" name="condition" value="like-new"> Like New (Flawless)
+                    </label>
+                    <label style="padding: 15px; border: 1px solid #ccc; border-radius: 5px; cursor: pointer;">
+                        <input type="radio" name="condition" value="good"> Good (Minor scratches)
+                    </label>
+                    <label style="padding: 15px; border: 1px solid #ccc; border-radius: 5px; cursor: pointer;">
+                        <input type="radio" name="condition" value="broken"> Broken (Cracked screen/Won't turn on)
+                    </label>
+                </div>
+                <div style="display: flex; justify-content: space-between;">
+                    <button class="btn btn-secondary back-btn" data-target="step-2">Back</button>
+                    <button class="btn btn-primary next-btn" data-target="step-4" disabled id="step-3-next">Get
+                        Quote</button>
+                </div>
+            </div>
+
+            <!-- Step 4: Quote Result -->
+            <div id="step-4" class="wizard-step" style="display: none; text-align: center;">
+                <h2 style="margin-bottom: 20px;">Your Estimated Value</h2>
+                <div id="quote-value"
+                    style="font-size: 3rem; font-weight: bold; color: var(--primary-color); margin-bottom: 10px;">$0.00
+                </div>
+                <p style="margin-bottom: 30px;">or <span id="eco-points">0</span> Eco-Points</p>
+
+                <button class="btn btn-primary" id="accept-quote-btn" style="width: 100%; margin-bottom: 10px;">Accept
+                    Quote & Recycle</button>
+                <button class="btn btn-secondary" onclick="location.reload()" style="width: 100%;">Start Over</button>
+            </div>
+        </div>
+    </main>
+
+    <script src="js/quote.js"></script>
+</body>
+
+</html>
